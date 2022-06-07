@@ -1,0 +1,20 @@
+/// $max = max value
+/// $total - current value
+/// calculates percentages from max value and current value
+/// from green to red (red is max)
+
+function percent2color($total, $max){
+    $thisPercents = $total / $max * 100;
+    if($thisPercents < 50) {
+        // green to yellow
+        $r = round(255 * ($thisPercents / 50), 0);
+        $g = 255;
+    } else {
+        // yellow to red
+        $r = 255;
+        $g = round(255 * ((50 - $thisPercents % 50) / 50),0);
+    }
+    // $color = rgb($r ,$g, $b);
+    $color =  "rgb($r, $g, 0)";
+    return $color;
+}
